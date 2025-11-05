@@ -1,0 +1,28 @@
+services:
+  tulsa:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    env_file:
+      - path: ./.env
+        required: true
+    depends_on:
+      - mongodb
+    networks:
+      - tulsa_network
+    
+
+  mongodb:
+    image: mongo:8.0
+    hostname: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - tulsa_data:/data/db
+    networks:
+      - tulsa_network
+
+networks:
+  tulsa_network:
+volumes:
+  tulsa_data:

@@ -1,0 +1,29 @@
+[project]
+name = "tulsa"
+version = "0.0.1"
+description = "Bot thu nhặt tin tức về lĩnh vực an toàn thông tin (cyber security)."
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+authors = [{ name = "Phòng làm bảo mật", email = "zhuren@hoclambaomat.online" }]
+dependencies = [
+  "apscheduler>=3.11.1",
+  "beautifulsoup4>=4.14.2",
+  "crawlee[curl-impersonate,parsel]",
+  "feedparser>=6.0.12",
+  "pymongo>=4.15.3",
+  "pyotp>=2.9.0",
+  "python-dotenv>=1.1.1",
+  "sentry-sdk>=2.43.0",
+]
+
+[tool.basedpyright]
+pythonVersion = "3.13"
+exclude = ["**/__pycache__", ".venv"]
+reportAny = "information"
+reportExplicitAny = "information"
+
+[tool.setuptools.packages.find]
+where = ["tulsa"]
+
+[dependency-groups]
+dev = []

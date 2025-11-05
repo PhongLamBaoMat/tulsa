@@ -1,0 +1,25 @@
+name: Validate Feeds format
+
+on:
+  push:
+    paths: ["feeds.toml", "feeds.schema.json"]
+    branches: ["main"]
+  pull_request:
+    paths: ["feeds.toml", "feeds.schema.json"] 
+
+jobs:
+  validate-feeds:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout sources
+        uses: actions/checkout@v5
+      
+      - name: Install taplo
+        run: |
+          curl -fsSL https://github.com/tamasfe/taplo/releases/latest/download/taplo-linux-x86_64.gz -o taplo-linux-x86_64.gz 
+          gzip -d taplo-linux-x86_64.gz
+          chmod +x taplo-linux-x86_64
+
+      - name: Validate Feeds
+        run: |
+          ./taplo-linux-x86_64 format --diff --check feeds.toml 

@@ -1,0 +1,9 @@
+exclude = ["pyproject.toml"]
+
+[formatting]
+indent_string = "  "
+reorder_arrays = true
+
+[schema] 
+path = "feeds.schema.json"
+enabled = true

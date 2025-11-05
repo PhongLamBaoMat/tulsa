@@ -1,0 +1,124 @@
+{
+    "title": "Feeds",
+    "description": "A collection of feeds",
+    "properties": {
+        "rss": {
+            "description": "RSS urls for RSS Spider",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "category": {
+                        "$ref": "#/$defs/category"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "only_tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "exclude_tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "in_urls": {
+                        "type":"array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "fix_link": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "allow_empty": {
+                        "type": "boolean",
+                        "default": false
+                    }
+                },
+                "required": [
+                    "category",
+                    "url"
+                ]
+            }
+        },
+        "blogspot": {
+            "description": "Google Blogspot's URLs for Blogspot Spider",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "category": {
+                        "$ref": "#/$defs/category"
+                    },
+                    "url": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "category",
+                    "url"
+                ]
+            }
+        },
+        "youtube": {
+            "description": "Youtube's channel ids for Youtube Spider",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "category": {
+                        "$ref": "#/$defs/category"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "category",
+                    "id"
+                ]
+            }
+        },
+        "spotify": {
+            "description": "Spotify's podcast show ids for Spotify Spider",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "category": {
+                        "$ref": "#/$defs/category"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "category",
+                    "id"
+                ]
+            }
+        }
+    },
+    "$defs": {
+        "category": {
+            "type": "string",
+            "enum": [
+                "generic",
+                "blockchain",
+                "bug-bounty"
+            ],
+            "default": "generic"
+        }
+    }
+}
