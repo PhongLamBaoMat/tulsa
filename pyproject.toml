@@ -1,3 +1,7 @@
+[build-system]
+requires = ["uv_build>=0.9.7,<0.10.0"]
+build-backend = "uv_build"
+
 [project]
 name = "tulsa"
 version = "0.0.1"
@@ -22,8 +26,6 @@ exclude = ["**/__pycache__", ".venv"]
 reportAny = "information"
 reportExplicitAny = "information"
 
-[tool.setuptools.packages.find]
-where = ["tulsa"]
-
-[dependency-groups]
-dev = []
+[tool.uv.build-backend]
+module-name = "tulsa"
+module-root = ""
