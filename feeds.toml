@@ -92,8 +92,6 @@ rss = [
   { category = "bug-bounty", url = "https://blog.intigriti.com/feed/" },
   { category = "bug-bounty", url = "https://csirt-cti.net/category/blog/feed/" },
   { category = "bug-bounty", url = "https://hatsfinance.medium.com/feed" },
-  { category = "bug-bounty", url = "https://medium.com/feed/tag/bug-bounty" },
-  { category = "bug-bounty", url = "https://medium.com/feed/tag/bug-bounty-tips" },
   { category = "bug-bounty", url = "https://ndevtk.github.io/writeups/feed.xml" },
   { category = "bug-bounty", url = "https://ott3rly.com/feed/" },
   { category = "bug-bounty", url = "https://www.yeswehack.com/rss.xml" },

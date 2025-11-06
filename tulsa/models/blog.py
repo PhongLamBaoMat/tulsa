@@ -78,14 +78,13 @@ class Blog(BaseModel):
             title = obj["headline"]
             url = obj["url"]
             description = obj["description"]
-            thumnail = obj["image"][0] if len(obj.get("img", [])) > 0 else None
+            thumnail = obj["image"][0] if len(obj.get("image", [])) > 0 else None
             published = parse_date(obj["datePublished"])
         elif obj.get("@type") == "Article":
             title = obj["name"]
             url = obj["url"]
             description = obj["description"]
             published = parse_date(obj["datePublished"])
-
 
         item = Blog(url=url, title=title)
         if description:
