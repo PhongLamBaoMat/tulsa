@@ -36,8 +36,18 @@ class Mongodb(Pipeline):
 
         async with self.__client.start_session() as session:
             async with await session.start_transaction():
-                if not await collection.find_one({"url": blog.url}):
+                result = await collection.find_one({"url": blog.url})
+                if not result:
                     _ = await collection.insert_one(blog.model_dump())
+                else:
+                    # Update missing fields from items have the same url
+                    current_blog = Blog.model_validate(result)
+                    current_des = current_blog.description or ""
+                    des = blog.description or ""
+                    if len(current_des) < len(des):
+                        _ = await collection.update_one(
+                            {"url": current_blog.url}, {"$set": {"description": des}}
+                        )
 
     async def handle_hacktivity_bounty(self, item: HacktivityBounty):
         collection: AsyncCollection[Any] = self.__db["blog"]
@@ -71,12 +81,8 @@ class Mongodb(Pipeline):
                         _ = await collection.update_one(
                             {"id": current_cve.id}, {"$set": {"score": cve.score}}
                         )
-                    current_description: str = (
-                        current_cve.description
-                        if current_cve.description is not None
-                        else ""
-                    )
-                    description = cve.description if cve.description is not None else ""
+                    current_description = current_cve.description or ""
+                    description = cve.description or ""
                     # We would prefer the shorter description
                     # NIST is ofter better at this
                     if (
