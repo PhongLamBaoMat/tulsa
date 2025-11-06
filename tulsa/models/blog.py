@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime
 from time import mktime
-from typing import Annotated
+from typing import Annotated, Any
 
 from parsel.selector import Selector
 from pydantic import BaseModel, Field
@@ -60,5 +60,39 @@ class Blog(BaseModel):
             published = parse_date(published)
             if published:
                 item.published = datetime.fromtimestamp(mktime(published))
+
+        return item
+
+    @staticmethod
+    def from_json_chema(obj: dict[str, Any]) -> Blog | None:
+        """
+        Current supports "SocialMediaPosting", "Article"
+        """
+        title = ""
+        url = ""
+        description = None
+        thumnail = None
+        published = None
+
+        if obj.get("@type") == "SocialMediaPosting":
+            title = obj["headline"]
+            url = obj["url"]
+            description = obj["description"]
+            thumnail = obj["image"][0] if len(obj.get("img", [])) > 0 else None
+            published = parse_date(obj["datePublished"])
+        elif obj.get("@type") == "Article":
+            title = obj["name"]
+            url = obj["url"]
+            description = obj["description"]
+            published = parse_date(obj["datePublished"])
+
+
+        item = Blog(url=url, title=title)
+        if description:
+            item.description = description
+        if thumnail:
+            item.thumbnail = thumnail
+        if published:
+            item.published = datetime.fromtimestamp(mktime(published))
 
         return item
