@@ -29,7 +29,6 @@ async def default_request_handler(context: HttpCrawlingContext):
         if description:
             item.description = description
 
-        context.log.info(item)
         yield item
 
 
