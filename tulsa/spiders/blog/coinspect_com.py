@@ -1,13 +1,10 @@
 import json
-from datetime import datetime
-from time import mktime
 from typing import override
 
 from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
 from tulsa import HtmlSpider
-from tulsa.helpers import parse_date
 from tulsa.models import Blog, Category
 
 
@@ -21,17 +18,10 @@ async def default_request_handler(context: ParselCrawlingContext):
         )
         return
     for entry in json.loads(data).get("hasPart", []):
-        if not entry["@type"] == "Article":
+        item = Blog.from_json_chema(entry)
+        if not item:
             continue
-        title = entry["name"]
-        url = entry["url"]
-        description = entry["description"]
-        published = parse_date(entry["datePublished"])
-
-        item = Blog(url=url, title=title, category=Category.Blockchain)
-        item.description = description
-        if published:
-            item.published = datetime.fromtimestamp(mktime(published))
+        item.category = Category.Blockchain
 
         yield item
 
