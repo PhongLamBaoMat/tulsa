@@ -58,8 +58,6 @@ async def default_request_handler(context: HttpCrawlingContext):
             context.request.loaded_url or context.request.url, thumbnail
         )
 
-        context.log.info(item)
-
         yield item
 
 

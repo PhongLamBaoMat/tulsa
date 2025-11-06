@@ -39,7 +39,6 @@ async def default_request_handler(
             if published:
                 item.published = datetime.fromtimestamp(mktime(published))
 
-        context.log.info(item)
         yield item
 
 
