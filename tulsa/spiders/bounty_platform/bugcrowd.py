@@ -15,7 +15,7 @@ from pyotp import TOTP
 
 from tulsa import Spider
 from tulsa.helpers import parse_date
-from tulsa.models import HacktivityBounty
+from tulsa.models import HacktivityBounty, Severity
 
 
 class BugcrowdAuth(TypedDict):
@@ -42,15 +42,15 @@ async def default_request_handler(
 
         match entry["priority"]:
             case 5:
-                severity = "information"
+                severity = Severity.Information
             case 4:
-                severity = "low"
+                severity = Severity.Low
             case 3:
-                severity = "medium"
+                severity = Severity.Medium
             case 2:
-                severity = "high"
+                severity = Severity.High
             case 1:
-                severity = "critial"
+                severity = Severity.Critical
             case _:
                 severity = None
 
@@ -60,7 +60,7 @@ async def default_request_handler(
         item.reporter = reporter
         item.program = program
         item.awarded = awarded
-        item.severity = severity  # pyright: ignore [reportAttributeAccessIssue]
+        item.severity = severity
         yield item
 
 
