@@ -12,7 +12,7 @@ from crawlee.statistics import FinalStatistics
 
 from tulsa import Spider
 from tulsa.helpers import parse_date
-from tulsa.models import HacktivityBounty
+from tulsa.models import HacktivityBounty, Severity
 
 
 async def default_request_handler(
@@ -29,7 +29,7 @@ async def default_request_handler(
 
         item = HacktivityBounty(url=url, title=title)
         item.awarded = awarded
-        item.severity = severity
+        item.severity = Severity(severity.lower()) if severity else None
         if published:
             published = parse_date(published)
             if published:

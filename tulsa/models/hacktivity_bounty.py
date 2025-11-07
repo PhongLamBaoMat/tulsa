@@ -1,9 +1,9 @@
 from datetime import datetime
-from typing import Annotated, Literal
+from typing import Annotated
 
 from pydantic import BaseModel, Field
 
-from tulsa.models.category import Category
+from tulsa.models.category import Category, Severity
 
 
 class HacktivityBounty(BaseModel):
@@ -13,9 +13,7 @@ class HacktivityBounty(BaseModel):
     reporter: Annotated[str | None, Field()] = None
     program: Annotated[str | None, Field()] = None
     description: Annotated[str | None, Field()] = None
-    severity: Annotated[
-        Literal["information", "low", "medium", "high", "critical"] | None, Field()
-    ] = None
+    severity: Annotated[Severity | None, Field()] = None
     awarded: Annotated[float | None, Field()] = None
     published: Annotated[datetime | None, Field()] = None
     sent: Annotated[bool, Field()] = False
