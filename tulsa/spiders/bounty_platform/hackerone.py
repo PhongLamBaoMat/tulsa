@@ -29,7 +29,9 @@ async def default_request_handler(
 
         item = HacktivityBounty(url=url, title=title)
         item.awarded = awarded
-        item.severity = Severity(severity.lower()) if severity else None
+        item.severity = (
+            Severity(severity.lower()) if severity and severity != "None" else None
+        )
         if published:
             published = parse_date(published)
             if published:
