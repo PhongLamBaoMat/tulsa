@@ -42,6 +42,14 @@ class DescriptionFilter(Pipeline):
                 item.description = self.__re2.sub("… ", item.description)
                 item.description = self.__re3.sub("", item.description)
                 item.description = self.__re4.sub("", item.description)
+        try:
+            if item.__getattribute__("description"):
+                description = item.__getattribute__("description")
+                for _ in range(5):
+                    description = description.replace("\n\n\n", "\n\n")
+                item.__setattr__("description", description)
+        except Exception:
+            pass
         # else:
         #     self.logger.warning(f"Unsupport item type: {item.__class__}")
         #     pass
