@@ -6,7 +6,7 @@ from datetime import datetime
 from time import mktime
 from typing import override
 
-from crawlee import Request
+from crawlee import ConcurrencySettings, Request
 from crawlee.crawlers import HttpCrawlingContext
 from crawlee.statistics import FinalStatistics
 
@@ -56,7 +56,11 @@ class HackeroneHacktivitySpider(Spider):
     token: str
 
     def __init__(self):
-        super().__init__(default_request_handler=default_request_handler)
+        concurrent_settings = ConcurrencySettings(max_tasks_per_minute=10)
+        super().__init__(
+            default_request_handler=default_request_handler,
+            concurrency_settings=concurrent_settings,
+        )
         token = os.getenv("HACKERONE_API_TOKEN")
         if not token:
             raise ValueError("HACKERONE_API_TOKEN environment variable is not set")
