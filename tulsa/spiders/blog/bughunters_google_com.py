@@ -27,7 +27,6 @@ async def default_request_handler(context: HttpCrawlingContext):
         item.description = description
         item.published = datetime.fromtimestamp(mktime(parse_date(published)))  # pyright: ignore [reportArgumentType]
 
-        context.log.info(item)
         yield item
 
 

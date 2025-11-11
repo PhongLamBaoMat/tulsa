@@ -13,7 +13,13 @@ from tulsa.models import Blog
 
 
 async def default_request_handler(context: ParselCrawlingContext):
-    for entry in context.selector.xpath('//div[@class="blog__item__inner"]'):
+    items = context.selector.xpath('//div[@class="blog__item__inner"]')
+    if len(items) == 0:
+        context.log.error(
+            f"{context.request.loaded_url or context.request.url} | Cannot find HTML element"
+        )
+        return
+    for entry in items:
         title = entry.xpath(".//h2/a/text()").get()
         if not title:
             context.log.error(f"{context.request.url} | Cannot find title HTML element")

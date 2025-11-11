@@ -17,7 +17,6 @@ async def default_request_handler(context: ParselCrawlingContext):
         )
         return
 
-    context.log.info(item)
     yield item
 
 

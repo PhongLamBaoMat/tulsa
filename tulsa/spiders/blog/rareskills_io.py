@@ -14,9 +14,11 @@ from tulsa.models import Blog, Category
 async def default_request_handler(
     context: ParselCrawlingContext,
 ) -> AsyncIterator[Blog]:
-    for entry in context.selector.xpath(
-        '//div[@class="brxe-ykotbt brxe-div blog-card"]'
-    ):
+    items = context.selector.xpath('//div[@class="brxe-ykotbt brxe-div blog-card"]')
+    if len(items):
+        context.log.error(f"{context.request.url} | Cannot find the HTML element")
+        return
+    for entry in items:
         url = entry.xpath("./a/@href").get()
         if not url:
             context.log.error(f"{context.request.url} | Cannot find url HTML element")
@@ -43,7 +45,6 @@ async def default_request_handler(
             if published:
                 item.published = datetime.fromtimestamp(mktime(published))
 
-        context.log.info(item)
         yield item
 
 
