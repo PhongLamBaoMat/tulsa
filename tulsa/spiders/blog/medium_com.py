@@ -27,7 +27,6 @@ async def default_request_handler(context: ParselCrawlingContext):
         return
     item.category = Category.BugBounty
 
-    context.log.info(item)
     yield item
 
 

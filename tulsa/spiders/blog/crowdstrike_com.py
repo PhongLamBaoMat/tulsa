@@ -44,7 +44,6 @@ async def default_request_handler(context: ParselCrawlingContext):
                 context.request.loaded_url or context.request.url, thumbnail
             )
 
-        context.log.info(item)
         yield item
 
 
