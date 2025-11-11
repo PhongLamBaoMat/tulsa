@@ -1135,7 +1135,6 @@ rss = [
   { category = "generic", url = "https://squiblydoo.blog/feed/" },
   { category = "generic", url = "https://srcincite.io/feed" },
   { category = "generic", url = "https://srd.cx/feed/" },
-  { category = "generic", url = "https://ssd-disclosure.com/feed/" },
   { category = "generic", url = "https://sslmate.com/blog/feed.atom" },
   { category = "generic", url = "https://ssno.cc/index.xml" },
   { category = "generic", url = "https://staaldraad.github.io/index.xml" },

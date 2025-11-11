@@ -71,12 +71,17 @@ class Spider(HttpCrawler):
         default_request_handler: Callable[
             [HttpCrawlingContext], AsyncIterator[BaseModel]
         ],
+        allow_redirects: bool = True,
         **kwargs: Unpack[BasicCrawlerOptions[ParsedHttpCrawlingContext[bytes]]],
     ):
         http_client = CurlImpersonateHttpClient()
         # We modify the default configuration to be able to disable TLS verification
         http_client._client_by_proxy_url[None] = _AsyncSession(  # pyright: ignore [reportPrivateUsage]
-            **{"impersonate": "chrome", "verify": False}
+            **{
+                "impersonate": "chrome",
+                "verify": False,
+                "allow_redirects": allow_redirects,
+            }
         )
         kwargs["http_client"] = http_client
         # Workaround solution to disable the storage
