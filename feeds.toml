@@ -738,6 +738,7 @@ rss = [
   { category = "generic", url = "https://kuldeep.io/index.xml" },
   { category = "generic", url = "https://kuterdinel.com/rss.xml" },
   { category = "generic", url = "https://kuzey.rs/feed.xml" },
+  { category = "generic", url = "https://lab.viettelcybersecurity.com/feed" },
   { category = "generic", url = "https://lab52.io/blog/feed/" },
   { category = "generic", url = "https://labs.cognisys.group/feed.xml" },
   { category = "generic", url = "https://labs.guard.io/feed" },
