@@ -64,7 +64,7 @@ class Blog(BaseModel):
         return item
 
     @staticmethod
-    def from_json_chema(obj: dict[str, Any]) -> Blog | None:
+    def from_json_schema(obj: dict[str, Any]) -> Blog | None:
         """
         Current supports "SocialMediaPosting", "Article"
         """
@@ -73,6 +73,7 @@ class Blog(BaseModel):
         description = None
         thumnail = None
         published = None
+        author = None
 
         if obj.get("@type") == "SocialMediaPosting":
             title = obj["headline"]
@@ -85,10 +86,14 @@ class Blog(BaseModel):
             url = obj["url"]
             description = obj["description"]
             published = parse_date(obj["datePublished"])
+            if obj.get("author") and obj["author"].get("name"):
+                author = obj["author"]["name"]
 
         item = Blog(url=url, title=title)
         if description:
             item.description = description
+        if author:
+            item.author = author
         if thumnail:
             item.thumbnail = thumnail
         if published:
