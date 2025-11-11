@@ -859,6 +859,7 @@ rss = [
   { category = "generic", url = "https://nahamsec.com/posts?format=rss" },
   { category = "generic", url = "https://naksyn.com/atom.xml" },
   { category = "generic", url = "https://nao-sec.org/feed.xml" },
+  { category = "generic", url = "https://ncsgroup.vn/feed/" },
   { category = "generic", url = "https://neilmadden.blog/feed/" },
   { category = "generic", url = "https://neodyme.io/rss.xml" },
   { category = "generic", url = "https://neroteam.com/blog/feed" },
