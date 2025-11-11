@@ -18,7 +18,7 @@ async def default_request_handler(context: ParselCrawlingContext):
         )
         return
     for entry in json.loads(data).get("hasPart", []):
-        item = Blog.from_json_chema(entry)
+        item = Blog.from_json_schema(entry)
         if not item:
             continue
         item.category = Category.Blockchain

@@ -19,7 +19,7 @@ async def default_request_handler(context: ParselCrawlingContext):
         )
         return
 
-    item = Blog.from_json_chema(json.loads(data))
+    item = Blog.from_json_schema(json.loads(data))
     if not item:
         context.log.error(
             f"{context.request.url} | Cannot find url or title in the json data"
