@@ -27,6 +27,9 @@ async def default_request_handler(context: ParselCrawlingContext):
         return
     item.category = Category.BugBounty
 
+    if item.description:
+        item.description = item.description.lstrip(item.title)
+
     yield item
 
 
