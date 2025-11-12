@@ -111,10 +111,8 @@ def __fix_entry_link(entry_link: str, replacement: list[str] | None) -> str:
 
 def __process_entry_summary(entry: Item) -> str | None:
     """Process and extract the best summary from an entry."""
-    summary = (
-        entry.get("summary") or entry["content"][0].value
-        if entry.get("content")
-        else None
+    summary = entry.get("description") or (
+        entry["content"][0].value if entry.get("content") else None
     )
     if not summary:
         return None
