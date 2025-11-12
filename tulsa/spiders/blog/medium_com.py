@@ -1,4 +1,5 @@
 import json
+from re import I
 from typing import override
 
 from crawlee import Request
@@ -26,6 +27,9 @@ async def default_request_handler(context: ParselCrawlingContext):
         )
         return
     item.category = Category.BugBounty
+
+    if item.description:
+        item.description = item.description.lstrip(item.title)
 
     yield item
 
