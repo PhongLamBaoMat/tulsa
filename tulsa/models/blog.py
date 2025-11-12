@@ -68,8 +68,8 @@ class Blog(BaseModel):
         """
         Current supports "SocialMediaPosting", "Article"
         """
-        title = ""
-        url = ""
+        title = None
+        url = None
         description = None
         thumnail = None
         published = None
@@ -81,6 +81,8 @@ class Blog(BaseModel):
             description = obj["description"]
             thumnail = obj["image"][0] if len(obj.get("image", [])) > 0 else None
             published = parse_date(obj["datePublished"])
+            if obj.get("author") and obj["author"].get("name"):
+                author = obj["author"]["name"]
         elif obj.get("@type") == "Article":
             title = obj["name"]
             url = obj["url"]
@@ -88,6 +90,9 @@ class Blog(BaseModel):
             published = parse_date(obj["datePublished"])
             if obj.get("author") and obj["author"].get("name"):
                 author = obj["author"]["name"]
+
+        if not url or not title:
+            return None
 
         item = Blog(url=url, title=title)
         if description:
