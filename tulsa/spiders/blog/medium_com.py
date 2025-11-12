@@ -1,5 +1,4 @@
 import json
-from re import I
 from typing import override
 
 from crawlee import Request

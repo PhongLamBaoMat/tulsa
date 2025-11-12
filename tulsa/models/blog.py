@@ -51,11 +51,14 @@ class Blog(BaseModel):
         published = selector.xpath(
             '//head/meta[@property="article:published_time"]/@content'
         ).get()
+        author = selector.xpath('//head/meta[@name="author"]/@content').get()
         item = Blog(url=url, title=title)
         if description:
             item.description = description
         if thumbnail:
             item.thumbnail = thumbnail
+        if author:
+            item.author = author
         if published:
             published = parse_date(published)
             if published:
