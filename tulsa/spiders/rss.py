@@ -53,6 +53,7 @@ def __should_skip_by_path(path: str) -> bool:
         "/posts/",
         "/tag/",
         "/tags/",
+        "/about.html",
     ]
 
 
