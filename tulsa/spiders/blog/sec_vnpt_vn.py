@@ -2,7 +2,6 @@ import json
 from datetime import datetime
 from time import mktime
 from typing import override
-from urllib.parse import urljoin
 
 from crawlee import Request
 from crawlee.crawlers import HttpCrawlingContext
