@@ -35,7 +35,7 @@ async def default_handler(context: HttpCrawlingContext) -> AsyncIterator[Blog]:
         description = entry["description"]
 
         item = Blog(url=url, title=title, category=category)
-        item.author = entry["name"]
+        item.author = res["name"]
         published = parse_date(published)
         if published:
             item.published = datetime.fromtimestamp(mktime(published))
