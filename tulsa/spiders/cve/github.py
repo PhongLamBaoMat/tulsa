@@ -1,5 +1,4 @@
 import json
-import logging
 import os
 import re
 from collections.abc import AsyncIterator
@@ -19,7 +18,6 @@ _GITHUB_NEXT_PAGE = re.compile(r'(?<=<)([\S]*)(?=>; rel="next")')
 
 
 async def default_handler(context: HttpCrawlingContext) -> AsyncIterator[Cve]:
-    logger = logging.getLogger(__name__)
     next_page = context.http_response.headers.get("link")
     if next_page:
         await context.add_requests(_GITHUB_NEXT_PAGE.findall(next_page))
@@ -34,12 +32,12 @@ async def default_handler(context: HttpCrawlingContext) -> AsyncIterator[Cve]:
         cna = "Github Advisory Database"
 
         if not published:
-            logger.error(f"{cve_id} doesn't have published date.")
+            context.log.error(f"{cve_id} doesn't have published date.")
             continue
 
         date = parse_date(published)
         if not date:
-            logger.error(f"Cannot parse '{published}' for CVE id: {cve_id}")
+            context.log.error(f"Cannot parse '{published}' for CVE id: {cve_id}")
             continue
         published = datetime.fromtimestamp(mktime(date))
 
