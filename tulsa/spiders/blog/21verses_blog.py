@@ -4,15 +4,16 @@ from time import mktime
 from typing import cast, override
 from urllib.parse import urljoin
 
+from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
-from tulsa import HtmlCrawlingContext, HtmlSpider
+from tulsa import Spider
 from tulsa.helpers import parse_date
 from tulsa.models import Blog, Category
 
 
 async def default_request_handler(
-    context: HtmlCrawlingContext,
+    context: ParselCrawlingContext,
 ) -> AsyncIterator[Blog]:
     items = context.selector.xpath("//article")
     if len(items) == 0:
@@ -35,7 +36,7 @@ async def default_request_handler(
         yield item
 
 
-class Verses21Spider(HtmlSpider):
+class Verses21Spider(Spider):
     def __init__(
         self,
     ) -> None:

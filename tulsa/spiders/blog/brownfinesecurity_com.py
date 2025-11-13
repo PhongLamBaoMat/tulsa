@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
-from tulsa import HtmlSpider
+from tulsa import Spider
 from tulsa.helpers import parse_date
 from tulsa.models import Blog
 
@@ -49,7 +49,7 @@ async def default_request_handler(context: ParselCrawlingContext):
         yield item
 
 
-class BrownfinesecurityCom(HtmlSpider):
+class BrownfinesecurityCom(Spider):
     def __init__(self) -> None:
         super().__init__(default_request_handler=default_request_handler)
 

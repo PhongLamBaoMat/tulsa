@@ -6,7 +6,7 @@ from time import mktime
 from typing import TypedDict, cast, final, override
 
 from crawlee import Request
-from crawlee.crawlers import HttpCrawlingContext
+from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
 from tulsa import Spider
@@ -18,7 +18,7 @@ class YoutubeProperties(TypedDict):
     category: Category
 
 
-async def default_handler(context: HttpCrawlingContext) -> AsyncIterator[Blog]:
+async def default_handler(context: ParselCrawlingContext) -> AsyncIterator[Blog]:
     res = json.loads(await context.http_response.read())
     user_data = cast(YoutubeProperties, context.request.user_data)  # pyright: ignore [reportInvalidCast]
     for entry in res.get("items", []):

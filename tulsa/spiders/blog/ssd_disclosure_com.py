@@ -4,14 +4,14 @@ from typing import override
 
 import feedparser
 from bs4 import BeautifulSoup
-from crawlee.crawlers import HttpCrawlingContext
+from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
 from tulsa import Spider
 from tulsa.models import Blog
 
 
-async def default_request_handler(context: HttpCrawlingContext):
+async def default_request_handler(context: ParselCrawlingContext):
     entries = feedparser.parse(await context.http_response.read()).entries
     if len(entries) == 0:
         context.log.error(f"'{context.request.url}' doesn't have any entries to read")

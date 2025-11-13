@@ -7,7 +7,7 @@ from time import mktime
 from typing import override
 
 from crawlee import ConcurrencySettings, Request
-from crawlee.crawlers import HttpCrawlingContext
+from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
 from tulsa import Spider
@@ -16,7 +16,7 @@ from tulsa.models import HacktivityBounty, Severity
 
 
 async def default_request_handler(
-    context: HttpCrawlingContext,
+    context: ParselCrawlingContext,
 ) -> AsyncIterator[HacktivityBounty]:
     res = json.loads(await context.http_response.read())
 

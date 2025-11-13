@@ -7,9 +7,7 @@ from typing import TypedDict, cast, final, override
 from urllib.parse import urlencode
 
 from crawlee import Request
-from crawlee.crawlers import (
-    HttpCrawlingContext,
-)
+from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 from pyotp import TOTP
 
@@ -25,7 +23,7 @@ class BugcrowdAuth(TypedDict):
 
 
 async def default_request_handler(
-    context: HttpCrawlingContext,
+    context: ParselCrawlingContext,
 ) -> AsyncIterator[HacktivityBounty]:
     res = json.loads(await context.http_response.read())
     for entry in res.get("results", []):
@@ -64,7 +62,7 @@ async def default_request_handler(
         yield item
 
 
-async def login(context: HttpCrawlingContext):
+async def login(context: ParselCrawlingContext):
     if context.session is None:
         context.log.error("The request session is None")
         return
@@ -99,7 +97,7 @@ async def login(context: HttpCrawlingContext):
     )
 
 
-async def otp_challenge(context: HttpCrawlingContext):
+async def otp_challenge(context: ParselCrawlingContext):
     if context.session is None:
         context.log.error("The request session is None")
         return
@@ -133,7 +131,7 @@ async def otp_challenge(context: HttpCrawlingContext):
     )
 
 
-async def set_session(context: HttpCrawlingContext):
+async def set_session(context: ParselCrawlingContext):
     if context.session is None:
         context.log.error("The request session is None")
         return

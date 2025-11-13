@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
-from tulsa import HtmlSpider
+from tulsa import Spider
 from tulsa.helpers import parse_date
 from tulsa.models import Blog
 
@@ -26,11 +26,10 @@ async def default_request_handler(context: ParselCrawlingContext):
         if published:
             item.published = datetime.fromtimestamp(mktime(published))
 
-        context.log.info(item)
         yield item
 
 
-class CaturelabsSonicwallComSpider(HtmlSpider):
+class CaturelabsSonicwallComSpider(Spider):
     def __init__(self) -> None:
         super().__init__(default_request_handler=default_request_handler)
 
