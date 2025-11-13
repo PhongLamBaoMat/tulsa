@@ -8,7 +8,7 @@ from typing import Literal, TypedDict
 
 from crawlee import Request
 
-from tulsa import HtmlSpider, Spider
+from tulsa import Spider
 from tulsa.models import Category
 
 from .blogspot import BlogspotSpider
@@ -19,12 +19,12 @@ from .youtube import YoutubeSpider
 
 def load_spiders(
     folder: Literal["blog", "cve", "bounty_platform"],
-) -> list[Spider | HtmlSpider]:
+) -> list[Spider]:
     """
     Automatically dynamic load all spiders in `folder`.
     """
 
-    ret: list[Spider | HtmlSpider] = []
+    ret: list[Spider] = []
     for _, module_name, _ in pkgutil.iter_modules(
         [os.path.join(__path__[0], folder)],
         f"tulsa.spiders.{folder.replace('/', '.')}.",
@@ -32,7 +32,7 @@ def load_spiders(
         module = importlib.import_module(module_name)
         for class_name, class_obj in inspect.getmembers(module, inspect.isclass):
             if (
-                (issubclass(class_obj, Spider) or issubclass(class_obj, HtmlSpider))
+                issubclass(class_obj, Spider)
                 and class_name != "Spider"
                 and class_name != "HtmlSpider"
             ):
@@ -46,7 +46,7 @@ def load_spiders(
     return ret
 
 
-def load_spiders_from_feeds(file_path: str = "feeds.toml") -> list[Spider | HtmlSpider]:
+def load_spiders_from_feeds(file_path: str = "feeds.toml") -> list[Spider]:
     class Feeds(TypedDict):
         rss: list[Request]
         blogspot: list[Request]
@@ -54,7 +54,7 @@ def load_spiders_from_feeds(file_path: str = "feeds.toml") -> list[Spider | Html
         spotify: list[tuple[str, Category]]
 
     rss_feeds: Feeds = {"rss": [], "blogspot": [], "youtube": [], "spotify": []}
-    spiders: list[Spider | HtmlSpider] = []
+    spiders: list[Spider] = []
     with open(file_path, "rb") as f:
         feeds = tomllib.load(f)
         for spider_name in feeds.keys():
@@ -100,8 +100,8 @@ def load_spiders_from_feeds(file_path: str = "feeds.toml") -> list[Spider | Html
 
 def get_spiders(
     types: list[Literal["blog", "cve"]],
-) -> list[Spider | HtmlSpider]:
-    result: list[Spider | HtmlSpider] = []
+) -> list[Spider]:
+    result: list[Spider] = []
     for kind in set(types):
         match kind:
             case "blog":

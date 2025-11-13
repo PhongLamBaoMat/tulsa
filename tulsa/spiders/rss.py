@@ -8,9 +8,7 @@ from urllib.parse import urljoin, urlparse
 import feedparser
 from bs4 import BeautifulSoup
 from crawlee import Request
-from crawlee.crawlers import (
-    HttpCrawlingContext,
-)
+from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
 if TYPE_CHECKING:
@@ -177,7 +175,7 @@ def __extract_category(rss_url: str, entry: Item) -> Category | None:
     return None
 
 
-async def default_handler(context: HttpCrawlingContext) -> AsyncIterator[Blog]:
+async def default_handler(context: ParselCrawlingContext) -> AsyncIterator[Blog]:
     entries = feedparser.parse(await context.http_response.read()).entries
     user_data = cast(RssProperties, context.request.user_data)  # pyright: ignore [reportInvalidCast]
 

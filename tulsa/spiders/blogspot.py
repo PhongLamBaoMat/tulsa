@@ -7,7 +7,7 @@ from typing import TypedDict, cast, final, override
 
 from bs4 import BeautifulSoup
 from crawlee import ConcurrencySettings, Request
-from crawlee.crawlers import HttpCrawlingContext
+from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
 from tulsa import Spider
@@ -19,7 +19,7 @@ class BlogspotProperties(TypedDict):
     category: Category
 
 
-async def default_handler(context: HttpCrawlingContext) -> AsyncIterator[Blog]:
+async def default_handler(context: ParselCrawlingContext) -> AsyncIterator[Blog]:
     user_data = cast(BlogspotProperties, context.request.user_data)  # pyright: ignore [reportInvalidCast]
     res = json.loads(await context.http_response.read())
     for entry in res["items"]:
@@ -45,7 +45,7 @@ async def default_handler(context: HttpCrawlingContext) -> AsyncIterator[Blog]:
         yield item
 
 
-async def prefetch_url(context: HttpCrawlingContext):
+async def prefetch_url(context: ParselCrawlingContext):
     max_items = context.request.user_data.get("max_items", 20)  # pyright: ignore [reportUnknownMemberType, reportUnknownVariableType]
     if not context.request.user_data.get("token"):  # pyright: ignore [reportUnknownMemberType]
         raise ValueError("Missing `token` field.")

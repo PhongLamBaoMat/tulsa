@@ -5,7 +5,7 @@ from time import mktime
 from typing import override
 from urllib.parse import urljoin
 
-from crawlee.crawlers import HttpCrawlingContext
+from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
 from tulsa import Spider
@@ -28,7 +28,7 @@ month_dict = {
 }
 
 
-async def default_request_handler(context: HttpCrawlingContext):
+async def default_request_handler(context: ParselCrawlingContext):
     for entry in json.loads(await context.http_response.read()):
         title = entry["title"]
         url = entry["url"]

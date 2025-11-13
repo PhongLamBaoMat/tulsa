@@ -7,7 +7,7 @@ from typing import TypedDict, cast, final, override
 from urllib.parse import urlencode
 
 from crawlee import Request
-from crawlee.crawlers import HttpCrawlingContext
+from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
 from tulsa import Spider
@@ -19,7 +19,7 @@ class SpotifyProperties(TypedDict):
     category: Category
 
 
-async def default_handler(context: HttpCrawlingContext) -> AsyncIterator[Blog]:
+async def default_handler(context: ParselCrawlingContext) -> AsyncIterator[Blog]:
     res = json.loads(await context.http_response.read())
     user_data = cast(SpotifyProperties, context.request.user_data)  # pyright: ignore [reportInvalidCast]
 
@@ -47,7 +47,7 @@ async def default_handler(context: HttpCrawlingContext) -> AsyncIterator[Blog]:
         yield item
 
 
-async def fetch_access_token(context: HttpCrawlingContext):
+async def fetch_access_token(context: ParselCrawlingContext):
     res = json.loads(await context.http_response.read())
     access_token = f"{res['token_type']} {res['access_token']}"
     context.request.user_data["access_token"] = access_token  # pyright: ignore [reportUnknownMemberType]

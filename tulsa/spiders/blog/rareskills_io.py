@@ -6,7 +6,7 @@ from typing import override
 from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
-from tulsa import HtmlSpider
+from tulsa import Spider
 from tulsa.helpers import parse_date
 from tulsa.models import Blog, Category
 
@@ -48,7 +48,7 @@ async def default_request_handler(
         yield item
 
 
-class RareskillIoSpider(HtmlSpider):
+class RareskillIoSpider(Spider):
     def __init__(self):
         super().__init__(default_request_handler=default_request_handler)
 

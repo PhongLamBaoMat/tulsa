@@ -4,7 +4,7 @@ from time import mktime
 from typing import override
 
 from crawlee import Request
-from crawlee.crawlers import HttpCrawlingContext
+from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
 from tulsa import Spider
@@ -12,7 +12,7 @@ from tulsa.helpers import parse_date
 from tulsa.models import Blog
 
 
-async def default_request_handler(context: HttpCrawlingContext):
+async def default_request_handler(context: ParselCrawlingContext):
     items = json.loads(await context.http_response.read())["data"]["posts"]
 
     for entry in items:

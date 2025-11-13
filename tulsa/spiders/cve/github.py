@@ -7,7 +7,7 @@ from time import mktime
 from typing import final, override
 
 from crawlee import Request
-from crawlee.crawlers import HttpCrawlingContext
+from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
 from tulsa import Spider
@@ -17,7 +17,7 @@ from tulsa.models import Cve
 _GITHUB_NEXT_PAGE = re.compile(r'(?<=<)([\S]*)(?=>; rel="next")')
 
 
-async def default_handler(context: HttpCrawlingContext) -> AsyncIterator[Cve]:
+async def default_handler(context: ParselCrawlingContext) -> AsyncIterator[Cve]:
     next_page = context.http_response.headers.get("link")
     if next_page:
         await context.add_requests(_GITHUB_NEXT_PAGE.findall(next_page))

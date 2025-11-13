@@ -7,7 +7,7 @@ from crawlee.crawlers import (
 )
 from crawlee.statistics import FinalStatistics
 
-from tulsa import HtmlSpider
+from tulsa import Spider
 from tulsa.models import Blog
 
 
@@ -38,7 +38,7 @@ async def fetch_articles(context: ParselCrawlingContext):
     await context.add_requests([entry["url"] for entry in items][:20])
 
 
-class BinarydefenseComSpider(HtmlSpider):
+class BinarydefenseComSpider(Spider):
     def __init__(self) -> None:
         super().__init__(default_request_handler=default_request_handler)
         self.router._handlers_by_label["fetch_articles"] = fetch_articles  # pyright: ignore [reportPrivateUsage]

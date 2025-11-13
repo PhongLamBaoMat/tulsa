@@ -5,7 +5,7 @@ from time import mktime
 from typing import final, override
 
 from crawlee import ConcurrencySettings
-from crawlee.crawlers import HttpCrawlingContext
+from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
 
 from tulsa import Spider
@@ -13,7 +13,7 @@ from tulsa.helpers import parse_date
 from tulsa.models import Cve
 
 
-async def default_handler(context: HttpCrawlingContext) -> AsyncIterator[Cve]:
+async def default_handler(context: ParselCrawlingContext) -> AsyncIterator[Cve]:
     res = json.loads(await context.http_response.read())
     for vuln in res.get("vulnerabilities", []):
         cve = vuln["cve"]
