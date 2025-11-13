@@ -48,9 +48,14 @@ class Blog(BaseModel):
         ).get()
         thumbnail = selector.xpath('//head/meta[@property="og:image"]/@content').get()
         # TODO: published has more property names
-        published = selector.xpath(
-            '//head/meta[@property="article:published_time"]/@content'
-        ).get()
+        published = (
+            selector.xpath(
+                '//head/meta[@property="article:published_time"]/@content'
+            ).get()
+            or selector.xpath(
+                '//head/meta[@property="article:modified_time"]/@content'
+            ).get()
+        )
         author = selector.xpath('//head/meta[@name="author"]/@content').get()
         item = Blog(url=url, title=title)
         if description:
