@@ -74,7 +74,7 @@ class Blog(BaseModel):
         title = None
         url = None
         description = None
-        thumnail = None
+        thumbnail = None
         published = None
         author = None
 
@@ -82,7 +82,7 @@ class Blog(BaseModel):
             title = obj["headline"]
             url = obj["url"]
             description = obj["description"]
-            thumnail = obj["image"][0] if len(obj.get("image", [])) > 0 else None
+            thumbnail = obj["image"][0] if len(obj.get("image", [])) > 0 else None
             published = parse_date(obj["datePublished"])
             if obj.get("author") and obj["author"].get("name"):
                 author = obj["author"]["name"]
@@ -93,6 +93,16 @@ class Blog(BaseModel):
             published = parse_date(obj["datePublished"])
             if obj.get("author") and obj["author"].get("name"):
                 author = obj["author"]["name"]
+        elif obj.get("@type") == "WebSite":
+            title = obj["headline"]
+            url = obj["url"]
+            description = obj["description"]
+            thumbnail = (
+                obj["image"]["url"]
+                if obj.get("image") and obj["image"].get("url")
+                else None
+            )
+            published = parse_date(obj["datePublished"])
 
         if not url or not title:
             return None
@@ -102,8 +112,8 @@ class Blog(BaseModel):
             item.description = description
         if author:
             item.author = author
-        if thumnail:
-            item.thumbnail = thumnail
+        if thumbnail:
+            item.thumbnail = thumbnail
         if published:
             item.published = datetime.fromtimestamp(mktime(published))
 
