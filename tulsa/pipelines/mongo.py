@@ -6,7 +6,7 @@ from pydantic import BaseModel
 from pymongo import AsyncMongoClient
 from pymongo.asynchronous.collection import AsyncCollection
 
-from tulsa.models import Blog, Cve, HacktivityBounty
+from tulsa.models import Blog, Category, Cve, HacktivityBounty
 from tulsa.pipelines import Pipeline
 
 
@@ -47,6 +47,15 @@ class Mongodb(Pipeline):
                     if len(current_des) < len(des):
                         _ = await collection.update_one(
                             {"url": current_blog.url}, {"$set": {"description": des}}
+                        )
+                    # Override category
+                    if (
+                        current_blog.category == Category.Generic
+                        and blog.category != Category.Generic
+                    ):
+                        _ = await collection.update_one(
+                            {"url": current_blog.url},
+                            {"$set": {"category": blog.category}},
                         )
 
     async def handle_hacktivity_bounty(self, item: HacktivityBounty):
