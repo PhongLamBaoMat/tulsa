@@ -67,7 +67,7 @@ class Spider(ParselCrawler):
         self,
         *,
         default_request_handler: Callable[
-            [HtmlCrawlingContext], AsyncIterator[BaseModel]
+            [ParselCrawlingContext], AsyncIterator[BaseModel]
         ],
         allow_redirects: bool = True,
         **kwargs: Unpack[BasicCrawlerOptions[ParselCrawlingContext]],
