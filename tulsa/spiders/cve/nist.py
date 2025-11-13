@@ -1,5 +1,4 @@
 import json
-import logging
 from collections.abc import AsyncIterator
 from datetime import UTC, datetime
 from time import mktime
@@ -15,7 +14,6 @@ from tulsa.models import Cve
 
 
 async def default_handler(context: HttpCrawlingContext) -> AsyncIterator[Cve]:
-    logger = logging.getLogger(__name__)
     res = json.loads(await context.http_response.read())
     for vuln in res.get("vulnerabilities", []):
         cve = vuln["cve"]
@@ -33,12 +31,12 @@ async def default_handler(context: HttpCrawlingContext) -> AsyncIterator[Cve]:
         published = cve.get("published")
 
         if not published:
-            logger.error(f"{cve_id} doesn't have published date.")
+            context.log.error(f"{cve_id} doesn't have published date.")
             continue
 
         date = parse_date(published)
         if not date:
-            logger.error(f"Cannot parse '{published}' for CVE id: {cve_id}")
+            context.log.error(f"Cannot parse '{published}' for CVE id: {cve_id}")
             continue
         published = datetime.fromtimestamp(mktime(date))
 
