@@ -1,6 +1,5 @@
 import json
 from collections.abc import AsyncIterator
-from cProfile import label
 from datetime import datetime
 from time import mktime
 from typing import override
@@ -9,7 +8,6 @@ from urllib.parse import urljoin
 from crawlee import Request
 from crawlee.crawlers import ParselCrawlingContext
 from crawlee.statistics import FinalStatistics
-from tldextract.tldextract import PUBLIC_SUFFIX_LIST_URLS
 
 from tulsa import Spider
 from tulsa.helpers import parse_date
