@@ -47,6 +47,7 @@ class DescriptionFilter(Pipeline):
                 description = item.__getattribute__("description")
                 for _ in range(5):
                     description = description.replace("\n\n\n", "\n\n")
+                description = description.strip()
                 item.__setattr__("description", description)
         except Exception:
             pass
