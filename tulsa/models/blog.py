@@ -34,26 +34,40 @@ class Blog(BaseModel):
 
     @staticmethod
     def from_html_selector(selector: Selector) -> Blog | None:
-        title = selector.xpath('//head/meta[@property="og:title"]/@content').get()
+        title = (
+            selector.xpath('//head/meta[@property="og:title"]/@content').get()
+            or selector.xpath('//head/meta[@name="og:title"]/@content').get()
+        )
         if not title:
             return None
         url = (
             selector.xpath('//head/meta[@property="og:url"]/@content').get()
+            or selector.xpath('//head/meta[@name="og:url"]/@content').get()
             or selector.xpath('//head/link[@rel="canonical"]/@href').get()
         )
         if not url:
             return None
-        description = selector.xpath(
-            '//head/meta[@property="og:description"]/@content'
-        ).get()
-        thumbnail = selector.xpath('//head/meta[@property="og:image"]/@content').get()
+        description = (
+            selector.xpath('//head/meta[@property="og:description"]/@content').get()
+            or selector.xpath('//head/meta[@name="og:description"]/@content').get()
+        )
+        thumbnail = (
+            selector.xpath('//head/meta[@property="og:image"]/@content').get()
+            or selector.xpath('//head/meta[@name="og:image"]/@content').get()
+        )
         # TODO: published has more property names
         published = (
             selector.xpath(
                 '//head/meta[@property="article:published_time"]/@content'
             ).get()
             or selector.xpath(
+                '//head/meta[@name="article:published_time"]/@content'
+            ).get()
+            or selector.xpath(
                 '//head/meta[@property="article:modified_time"]/@content'
+            ).get()
+            or selector.xpath(
+                '//head/meta[@name="article:modified_time"]/@content'
             ).get()
         )
         author = selector.xpath('//head/meta[@name="author"]/@content').get()
