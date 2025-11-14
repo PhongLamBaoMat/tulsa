@@ -1457,6 +1457,7 @@ rss = [
   { category = "generic", url = "https://www.securityjoes.com/blog-feed.xml" },
   { category = "generic", url = "https://www.sentinelone.com/blog/category/from-the-front-lines/feed/" },
   { category = "generic", url = "https://www.sentinelone.com/labs/feed/" },
+  { category = "generic", url = "https://www.seqrite.com/blog/category/technical/feed/" },
   { category = "generic", url = "https://www.serializing.me/post/index.xml" },
   { category = "generic", url = "https://www.shelltrail.com/research/index.xml" },
   { category = "generic", url = "https://www.shielder.com/blog/index.xml" },
