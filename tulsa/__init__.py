@@ -83,6 +83,7 @@ class Spider(ParselCrawler):
         )
         # Workaround solution to disable the storage
         kwargs["storage_client"] = MemoryStorageClient()
+        kwargs["http_client"] = http_client
         super().__init__(**kwargs)
         self.router = SpiderRouter()  # pyright: ignore [reportUnannotatedClassAttribute]
         _ = self.router.default_handler(default_request_handler)
