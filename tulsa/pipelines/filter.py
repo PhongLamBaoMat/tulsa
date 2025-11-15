@@ -31,7 +31,7 @@ class DescriptionFilter(Pipeline):
     @property
     @override
     def priority(self) -> int:
-        return 1
+        return 0
 
     @override
     async def handle_item(self, item: BaseModel) -> BaseModel | None:
@@ -47,6 +47,7 @@ class DescriptionFilter(Pipeline):
                 description = item.__getattribute__("description")
                 for _ in range(5):
                     description = description.replace("\n\n\n", "\n\n")
+                description = description.replace("\xa0", " ").replace("  ", " ")
                 description = description.strip()
                 item.__setattr__("description", description)
         except Exception:
@@ -66,7 +67,7 @@ class UrlDeduplication(Pipeline):
     @property
     @override
     def priority(self) -> int:
-        return 1
+        return 2
 
     @override
     async def handle_item(self, item: BaseModel) -> BaseModel | None:
@@ -92,7 +93,7 @@ class OutOfDateItem(Pipeline):
     @property
     @override
     def priority(self) -> int:
-        return 0
+        return 1
 
     @override
     async def handle_item(self, item: BaseModel) -> BaseModel | None:
