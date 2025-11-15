@@ -106,8 +106,13 @@ class Blog(BaseModel):
             if obj.get("author") and obj["author"].get("name"):
                 author = obj["author"]["name"]
         elif obj.get("@type") == "Article":
-            title = obj["name"]
-            url = obj["url"]
+            title = obj.get("name") or obj.get("headline")
+            url = obj.get("url") or (
+                obj["mainEntityOfPage"]["@id"]
+                if obj.get("mainEntityOfPage") and obj["mainEntityOfPage"].get("@id")
+                else None
+            )
+            thumbnail = obj.get("image")
             description = obj["description"]
             published = parse_date(obj["datePublished"])
             if obj.get("author") and obj["author"].get("name"):
