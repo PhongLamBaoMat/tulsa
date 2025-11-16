@@ -851,6 +851,7 @@ rss = [
   { category = "generic", url = "https://n0psn0ps.github.io/atom.xml" },
   { category = "generic", url = "https://n1ght-w0lf.github.io/feed.xml" },
   { category = "generic", url = "https://n4r1b.com/posts/index.xml" },
+  { category = "generic", url = "https://nac-l.github.io/feed.xml" },
   { category = "generic", url = "https://nahamsec.com/posts?format=rss" },
   { category = "generic", url = "https://naksyn.com/atom.xml" },
   { category = "generic", url = "https://nao-sec.org/feed.xml" },
