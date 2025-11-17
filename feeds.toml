@@ -735,7 +735,7 @@ rss = [
   { category = "generic", url = "https://lab.viettelcybersecurity.com/feed" },
   { category = "generic", url = "https://lab52.io/blog/feed/" },
   { category = "generic", url = "https://labs.cognisys.group/feed.xml" },
-  { category = "generic", url = "https://labs.jumpsec.com/feed/" },
+  { category = "generic", url = "https://labs.jumpsec.com/feed.xml" },
   { category = "generic", url = "https://labs.k7computing.com/index.php/feed/" },
   { category = "generic", url = "https://labs.lares.com/rss/" },
   { category = "generic", url = "https://labs.nettitude.com/feed/" },
