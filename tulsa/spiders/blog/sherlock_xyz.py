@@ -8,7 +8,7 @@ from crawlee.statistics import FinalStatistics
 
 from tulsa import Spider
 from tulsa.helpers import parse_date
-from tulsa.models import Blog
+from tulsa.models import Blog, Category
 
 
 class SherlockXyzSpider(Spider):
@@ -56,5 +56,6 @@ class SherlockXyzSpider(Spider):
                 published = parse_date(published)
                 if published:
                     item.published = datetime.fromtimestamp(mktime(published))
+            item.category = Category.Blockchain
 
             yield item
