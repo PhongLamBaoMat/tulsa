@@ -888,7 +888,6 @@ rss = [
   { category = "generic", url = "https://offensivecraft.wordpress.com/feed/" },
   { category = "generic", url = "https://offensivedefence.co.uk/index.xml" },
   { category = "generic", url = "https://offsec.almond.consulting/feeds/all.atom.xml" },
-  { category = "generic", url = "https://offsec.space/posts/index.xml" },
   { category = "generic", url = "https://oldboy21.github.io/posts/index.xml" },
   { category = "generic", url = "https://one.0day.works/rss.xml" },
   { category = "generic", url = "https://onecloudemoji.github.io/feed.xml" },
