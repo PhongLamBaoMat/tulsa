@@ -55,7 +55,8 @@ class SynacktiveComSpider(Spider):
                     context.request.loaded_url or context.request.url, thumbnail
                 )
             if published:
-                published = parse_date(published.replace("/", "-"))
+                day, month, year = published.split("/")
+                published = parse_date(f"{year}-{month}-{day}")
                 if published:
                     item.published = datetime.fromtimestamp(mktime(published))
 
