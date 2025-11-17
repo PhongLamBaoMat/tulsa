@@ -54,6 +54,6 @@ class HalbornComSpider(Spider):
             item.thumbnail = thumbnail
             if published:
                 item.published = datetime.fromtimestamp(mktime(published))
-            item.category = Category.BugBounty
+            item.category = Category.Blockchain
 
             yield item
