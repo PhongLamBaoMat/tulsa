@@ -474,7 +474,6 @@ rss = [
   { category = "generic", url = "https://cxiao.net/posts/index.xml" },
   { category = "generic", url = "https://cybenari.com/blog-feed.xml" },
   { category = "generic", url = "https://cybercat.institute/feed.xml" },
-  { category = "generic", url = "https://cyberdanube.com/en/feed/index.html" },
   { category = "generic", url = "https://cyberdom.blog/feed/" },
   { category = "generic", url = "https://cybergeeks.tech/author/cybermaster/feed/" },
   { category = "generic", url = "https://cybergeeks.tech/feed/" },
