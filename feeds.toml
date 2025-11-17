@@ -1469,6 +1469,7 @@ rss = [
   { category = "generic", url = "https://www.slcyber.io/category/threat-intelligence/feed/" },
   { category = "generic", url = "https://www.sneakymonkey.net/rss/" },
   { category = "generic", url = "https://www.somersetrecon.com/blog?format=rss" },
+  { category = "generic", url = "https://www.sonarsource.com/blog/rss.xml" },
   { category = "generic", url = "https://www.sygnia.co/category/blog/feed/" },
   { category = "generic", url = "https://www.synthesis.to/feed.xml" },
   { category = "generic", url = "https://www.syonsecurity.com/blog-feed.xml" },
