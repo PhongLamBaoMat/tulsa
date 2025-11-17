@@ -252,7 +252,6 @@ rss = [
   { category = "generic", url = "https://blog.compass-security.com/feed/" },
   { category = "generic", url = "https://blog.convisoappsec.com/en/category/code-fighters-en-us/feed/" },
   { category = "generic", url = "https://blog.cr.yp.to/feed.application=xml" },
-  { category = "generic", url = "https://blog.criminalip.io/category/cybersecurity-report-en/feed/" },
   { category = "generic", url = "https://blog.cryptographyengineering.com/feed/" },
   { category = "generic", url = "https://blog.cryptohack.org/feed.xml" },
   { category = "generic", url = "https://blog.cyber5w.com/feed.xml" },
