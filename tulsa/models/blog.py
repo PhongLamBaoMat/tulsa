@@ -3,6 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from time import mktime
 from typing import Annotated, Any
+from urllib.parse import urljoin
 
 from parsel.selector import Selector
 from pydantic import BaseModel, Field
@@ -75,7 +76,7 @@ class Blog(BaseModel):
         if description:
             item.description = description
         if thumbnail:
-            item.thumbnail = thumbnail
+            item.thumbnail = urljoin(url, thumbnail)
         if author:
             item.author = author
         if published:
