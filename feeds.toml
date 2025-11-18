@@ -867,6 +867,7 @@ rss = [
   { category = "generic", url = "https://nixhacker.com/rss/" },
   { category = "generic", url = "https://nixintel.info/feed/" },
   { category = "generic", url = "https://nokline.github.io/feed.xml" },
+  { category = "generic", url = "https://noperator.dev/index.xml" },
   { category = "generic", url = "https://norfolkinfosec.com/feed/" },
   { category = "generic", url = "https://nosecurity.blog/feed.xml" },
   { category = "generic", url = "https://notes.zeronvll.com/index.xml" },
