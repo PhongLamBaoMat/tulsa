@@ -34,7 +34,7 @@ class DescriptionFilter(Pipeline):
         return 0
 
     @override
-    async def handle_item(self, item: BaseModel) -> BaseModel | None:
+    async def handle_item(self, item: BaseModel) -> BaseModel:
         if item.__class__ is Blog:
             item = cast(Blog, item)
             if item.description and len(item.description) > 0:
@@ -74,7 +74,7 @@ class TitleFilter(Pipeline):
         return 0
 
     @override
-    async def handle_item(self, item: BaseModel) -> BaseModel | None:
+    async def handle_item(self, item: BaseModel) -> BaseModel:
         try:
             if item.__getattribute__("title"):
                 title = cast(str, item.__getattribute__("title"))
@@ -85,6 +85,8 @@ class TitleFilter(Pipeline):
                 item.__setattr__("title", title)
         except Exception:
             pass
+
+        return item
 
 
 class UrlDeduplication(Pipeline):
@@ -99,7 +101,7 @@ class UrlDeduplication(Pipeline):
         return 2
 
     @override
-    async def handle_item(self, item: BaseModel) -> BaseModel | None:
+    async def handle_item(self, item: BaseModel) -> BaseModel:
         if item.__class__ is Blog or item.__class__ is HacktivityBounty:
             url = cast(str, item.__getattribute__("url"))
             url = url.rstrip("/")
