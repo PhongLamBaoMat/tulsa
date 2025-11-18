@@ -44,10 +44,14 @@ class DescriptionFilter(Pipeline):
                 item.description = self.__re4.sub("", item.description)
         try:
             if item.__getattribute__("description"):
-                description = item.__getattribute__("description")
+                description = cast(str, item.__getattribute__("description"))
                 for _ in range(5):
                     description = description.replace("\n\n\n", "\n\n")
-                description = description.replace("\xa0", " ").replace("  ", " ")
+                description = (
+                    description.replace("\xa0 ", " ")
+                    .replace(" \xa0", " ")
+                    .replace("\xa0", "")
+                )
                 description = description.strip()
                 item.__setattr__("description", description)
         except Exception:
@@ -73,7 +77,7 @@ class TitleFilter(Pipeline):
     async def handle_item(self, item: BaseModel) -> BaseModel | None:
         try:
             if item.__getattribute__("title"):
-                title = item.__getattribute__("title")
+                title = cast(str, item.__getattribute__("title"))
                 title = title.replace("\xa0", " ")
                 for _ in range(5):
                     title = title.replace("  ", " ")
