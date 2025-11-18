@@ -1,17 +1,13 @@
 import asyncio
-import sys
 
 from dotenv import load_dotenv
 
-sys.path.append("..")
-
-from tulsa.spiders.blog.medium_com import MediumComTagSpider
+from tulsa.spiders.blog.issues_chromium_org import ProjectZeroIssueTracker
 
 
 async def main():
-    crawler = MediumComTagSpider()
+    crawler = ProjectZeroIssueTracker()
     _ = await crawler.run()
-    pass
 
 
 if __name__ == "__main__":
