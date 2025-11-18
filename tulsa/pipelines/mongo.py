@@ -24,7 +24,7 @@ class Mongodb(Pipeline):
     @property
     @override
     def enabled(self) -> bool:
-        return True
+        return False
 
     @property
     @override
@@ -56,6 +56,12 @@ class Mongodb(Pipeline):
                         _ = await collection.update_one(
                             {"url": current_blog.url},
                             {"$set": {"category": blog.category}},
+                        )
+                    # Override published
+                    if not current_blog.published and blog.published:
+                        _ = await collection.update_one(
+                            {"url": current_blog.url},
+                            {"$set": {"published": blog.published}},
                         )
 
     async def handle_hacktivity_bounty(self, item: HacktivityBounty):

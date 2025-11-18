@@ -58,6 +58,31 @@ class DescriptionFilter(Pipeline):
         return item
 
 
+class TitleFilter(Pipeline):
+    @property
+    @override
+    def enabled(self) -> bool:
+        return True
+
+    @property
+    @override
+    def priority(self) -> int:
+        return 0
+
+    @override
+    async def handle_item(self, item: BaseModel) -> BaseModel | None:
+        try:
+            if item.__getattribute__("title"):
+                title = item.__getattribute__("title")
+                title = title.replace("\xa0", " ")
+                for _ in range(5):
+                    title = title.replace("  ", " ")
+                title = title.strip()
+                item.__setattr__("title", title)
+        except Exception:
+            pass
+
+
 class UrlDeduplication(Pipeline):
     @property
     @override
