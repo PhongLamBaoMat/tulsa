@@ -24,7 +24,7 @@ class Mongodb(Pipeline):
     @property
     @override
     def enabled(self) -> bool:
-        return False
+        return True
 
     @property
     @override
