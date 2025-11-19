@@ -62,5 +62,5 @@ class RedditComSpider(Spider):
     async def default_request_handler(context: ParselCrawlingContext):
         item = Blog.from_html_selector(context.selector)
         if item:
-            item.title = item.title.removeprefix("Github - ")
+            item.title = item.title.removeprefix("GitHub - ")
             yield item
