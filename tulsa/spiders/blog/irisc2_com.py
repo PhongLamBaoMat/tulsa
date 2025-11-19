@@ -45,7 +45,7 @@ class Irisc2ComSpider(Spider):
             ).get()
             thumbnail = entry.xpath(".//img/@src").get()
             published = entry.xpath(
-                './/span[@class="text-slate-400 ml-4 text-sm"]'
+                './/span[@class="text-slate-400 ml-4 text-sm"]/text()'
             ).get()
 
             item = Blog(url=url, title=title)
