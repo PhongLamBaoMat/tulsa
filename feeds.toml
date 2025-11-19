@@ -463,6 +463,7 @@ rss = [
   { category = "generic", url = "https://courk.cc/feeds/all.atom.xml" },
   { category = "generic", url = "https://cra0.net/blog/index.xml" },
   { category = "generic", url = "https://cravaterouge.com/articles/index.xml" },
+  { category = "generic", url = "https://crnkovic.dev/rss/" },
   { category = "generic", url = "https://crypt0ace.github.io/feed.xml" },
   { category = "generic", url = "https://cryptographycaffe.sandboxaq.com/index.xml" },
   { category = "generic", url = "https://crzphil.github.io/index.xml" },
