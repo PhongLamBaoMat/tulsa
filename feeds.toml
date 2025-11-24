@@ -445,7 +445,7 @@ rss = [
   { category = "generic", url = "https://cloudsecurityalliance.org/feed" },
   { category = "generic", url = "https://cocomelonc.github.io/feed.xml" },
   { category = "generic", url = "https://code-white.com/blog/index.xml" },
-  { category = "generic", url = "https://codeanlabs.com/blog/category/research/feed/" },
+  { category = "generic", url = "https://codeanlabs.com/category/research/feed/" },
   { category = "generic", url = "https://codedefender.io/rss.xml" },
   { category = "generic", url = "https://codeneverdies.github.io/index.xml" },
   { category = "generic", url = "https://codesent.io/blog/code-sentinels-1/feed" },
