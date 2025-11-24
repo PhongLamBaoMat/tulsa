@@ -15,7 +15,7 @@ async def default_request_handler(
     context: ParselCrawlingContext,
 ) -> AsyncIterator[Blog]:
     items = context.selector.xpath('//div[@class="brxe-ykotbt brxe-div blog-card"]')
-    if len(items):
+    if len(items) == 0:
         context.log.error(f"{context.request.url} | Cannot find the HTML element")
         return
     for entry in items:
