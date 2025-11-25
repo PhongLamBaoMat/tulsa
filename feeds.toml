@@ -1129,6 +1129,7 @@ rss = [
   { category = "generic", url = "https://sslmate.com/blog/feed.atom" },
   { category = "generic", url = "https://ssno.cc/index.xml" },
   { category = "generic", url = "https://staaldraad.github.io/index.xml" },
+  { category = "generic", url = "https://stack.int.mov/rss/" },
   { category = "generic", url = "https://stackoverflow.blog/feed", only_tags = [
     "security",
   ] },
