@@ -375,6 +375,7 @@ rss = [
   { category = "generic", url = "https://blog.the.al/feed.xml" },
   { category = "generic", url = "https://blog.thinkst.com/feed" },
   { category = "generic", url = "https://blog.timschumi.net/feed.xml" },
+  { category = "generic", url = "https://blog.torproject.org/feed.xml" },
   { category = "generic", url = "https://blog.trailofbits.com/feed/" },
   { category = "generic", url = "https://blog.tyage.net/index.xml" },
   { category = "generic", url = "https://blog.unpac.me/rss/" },
