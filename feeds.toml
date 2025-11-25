@@ -1358,6 +1358,7 @@ rss = [
   { category = "generic", url = "https://www.hackthebox.com/rss/blog/threat-intelligence" },
   { category = "generic", url = "https://www.hackthebox.com/rss/blog/write-ups" },
   { category = "generic", url = "https://www.hacktivesecurity.com/blog/feed/" },
+  { category = "generic", url = "https://www.hacktron.ai/rss.xml" },
   { category = "generic", url = "https://www.hahwul.com/feed.xml" },
   { category = "generic", url = "https://www.hakupiku.com/index.xml" },
   { category = "generic", url = "https://www.herbiez.com/?feed=rss2" },
