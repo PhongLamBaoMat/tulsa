@@ -1002,6 +1002,7 @@ rss = [
   { category = "generic", url = "https://research.aurainfosec.io/disclosure/index.xml" },
   { category = "generic", url = "https://research.aurainfosec.io/pentest/index.xml" },
   { category = "generic", url = "https://research.checkpoint.com/feed/" },
+  { category = "generic", url = "https://research.eye.security/feed/" },
   { category = "generic", url = "https://research.ifcr.dk/feed" },
   { category = "generic", url = "https://research.meekolab.com/rss.xml" },
   { category = "generic", url = "https://research.openanalysis.net/feed.xml" },
