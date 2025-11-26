@@ -42,9 +42,9 @@ class Blog(BaseModel):
         if not title:
             return None
         url = (
-            selector.xpath('//head/meta[@property="og:url"]/@content').get()
+            selector.xpath('//head/link[@rel="canonical"]/@href').get()
+            or selector.xpath('//head/meta[@property="og:url"]/@content').get()
             or selector.xpath('//head/meta[@name="og:url"]/@content').get()
-            or selector.xpath('//head/link[@rel="canonical"]/@href').get()
         )
         if not url:
             return None
