@@ -1370,6 +1370,7 @@ rss = [
   { category = "generic", url = "https://www.hysler.net/posts/index.xml" },
   { category = "generic", url = "https://www.ihteam.net/feed/" },
   { category = "generic", url = "https://www.imperva.com/blog/category/labs/feed/" },
+  { category = "generic", url = "https://www.incendium.rocks/feed.xml" },
   { category = "generic", url = "https://www.infosecb.com/rss" },
   { category = "generic", url = "https://www.infosecinnovations.com/blog-feed.xml" },
   { category = "generic", url = "https://www.infracloud.io/feed.xml", only_tags = [
