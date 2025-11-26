@@ -27,7 +27,7 @@ class AisleComSpider(Spider):
         res = (await context.http_response.read()).decode()
         pos = res.rfind("6:[")
         json_data = res[pos + 2 :]
-        j = json.loads(json_data)
+        j = json.loads(json_data.split("\n")[0])
         items = j[3]["children"][6][3]["children"][3]["posts"]
 
         for entry in items:
