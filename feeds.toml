@@ -1436,6 +1436,8 @@ rss = [
   { category = "generic", url = "https://www.persistent-security.net/blog-feed.xml" },
   { category = "generic", url = "https://www.philvenables.com/blog-feed.xml" },
   { category = "generic", url = "https://www.phishlabs.com/feed" },
+  # TODO: filter categories
+  { category = "generic", url = "https://www.picussecurity.com/resource/tag/article/atom.xml" },
   { category = "generic", url = "https://www.pixiepointsecurity.com/blog/index.xml" },
   { category = "generic", url = "https://www.plerion.com/blog/rss.xml" },
   { category = "generic", url = "https://www.pmnh.site/index.xml" },
