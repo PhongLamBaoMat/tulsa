@@ -683,6 +683,7 @@ rss = [
   { category = "generic", url = "https://jackfromeast.site/feed.xml" },
   { category = "generic", url = "https://jakewnuk.com/index.xml" },
   { category = "generic", url = "https://jakewnuk.com/posts/index.xml" },
+  { category = "generic", url = "https://jakobfriedl.github.io/index.xml" },
   { category = "generic", url = "https://jamchamb.net/feed" },
   { category = "generic", url = "https://janbakker.tech/category/security/feed/" },
   { category = "generic", url = "https://jcjc-dev.com/atom.xml" },
