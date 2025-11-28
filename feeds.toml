@@ -682,6 +682,7 @@ rss = [
   { category = "generic", url = "https://ipslav.github.io/feed.xml" },
   { category = "generic", url = "https://ipurple.team/feed/" },
   { category = "generic", url = "https://iq.thc.org/rss.xml" },
+  { category = "generic", url = "https://irisc-research-syndicate.github.io/feed.xml" },
   { category = "generic", url = "https://ironpeak.be/blog/index.xml" },
   { category = "generic", url = "https://isaacdunham.github.io/rss.xml" },
   { category = "generic", url = "https://ishaqmohammed.me/posts/index.xml" },
