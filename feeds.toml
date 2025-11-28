@@ -881,6 +881,7 @@ rss = [
   { category = "generic", url = "https://nsrip.com/feed.xml" },
   { category = "generic", url = "https://null2root.github.io/feed.xml" },
   { category = "generic", url = "https://nullsec.us/rss/" },
+  { category = "generic", url = "https://numb3rs.re/index.xml" },
   { category = "generic", url = "https://nusgreyhats.org/index.xml" },
   { category = "generic", url = "https://nv1t.github.io/blog/index.xml" },
   { category = "generic", url = "https://nyanpasu64.gitlab.io/atom.xml" },
