@@ -1446,6 +1446,7 @@ rss = [
   # TODO: filter categories
   { category = "generic", url = "https://blog.cybershenanigans.space/index.xml" },
   { category = "generic", url = "https://dawnslab.jd.com/atom.xml" },
+  { category = "generic", url = "https://mrbruh.com/index.xml" },
   { category = "generic", url = "https://www.picussecurity.com/resource/tag/article/atom.xml" },
   { category = "generic", url = "https://www.pixiepointsecurity.com/blog/index.xml" },
   { category = "generic", url = "https://www.plerion.com/blog/rss.xml" },
