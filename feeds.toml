@@ -21,6 +21,7 @@ blogspot = [
   { category = "generic", url = "https://garyodernichts.blogspot.com" },
   { category = "generic", url = "https://googleprojectzero.blogspot.com" },
   { category = "generic", url = "https://hoyahaxa.blogspot.com" },
+  { category = "generic", url = "https://hvinternals.blogspot.com" },
   { category = "generic", url = "https://hybrid-analysis.blogspot.com" },
   { category = "generic", url = "https://labs.ioactive.com" },
   { category = "generic", url = "https://mahmoudsec.blogspot.com" },
