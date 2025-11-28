@@ -1432,6 +1432,7 @@ rss = [
   { category = "generic", url = "https://www.npopov.com/rss.xml" },
   { category = "generic", url = "https://www.offensiveosint.io/rss/" },
   { category = "generic", url = "https://www.onekey.com/resource/rss.xml" },
+  { category = "generic", url = "https://www.oobs.io/index.xml" },
   { category = "generic", url = "https://www.outflank.nl/blog/feed/" },
   { category = "generic", url = "https://www.paloaltonetworks.com/blog/feed/" },
   { category = "generic", url = "https://www.paloaltonetworks.com/devsectalks/feed/" },
