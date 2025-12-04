@@ -869,6 +869,7 @@ rss = [
   { category = "generic", url = "https://neodyme.io/rss.xml" },
   { category = "generic", url = "https://neroteam.com/blog/feed" },
   { category = "generic", url = "https://netflixtechblog.com/feed/tagged/security" },
+  { category = "generic", url = "https://new-blog.ch4n3.kr/rss/" },
   { category = "generic", url = "https://news.sophos.com/en-us/category/security-operations/feed/" },
   { category = "generic", url = "https://newtonpaul.com/feed/" },
   { category = "generic", url = "https://nickb.website/feed.xml" },
