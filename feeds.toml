@@ -969,6 +969,7 @@ rss = [
   { category = "generic", url = "https://psytester.github.io/feed.xml" },
   { category = "generic", url = "https://ptr0x1.com/posts/index.xml" },
   { category = "generic", url = "https://pulse.latio.tech/feed" },
+  { category = "generic", url = "https://pulsesecurity.co.nz/feed.xml" },
   { category = "generic", url = "https://purpleteamsec.substack.com/feed" },
   { category = "generic", url = "https://pwn.win/feed.xml" },
   { category = "generic", url = "https://pwner.gg/index.xml" },
