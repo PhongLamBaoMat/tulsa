@@ -29,7 +29,7 @@ class ProjectdiscoveryIoSpider(Spider):
     @staticmethod
     async def default_request_handler(context: ParselCrawlingContext):
         res = (await context.http_response.read()).decode()
-        pos = res.find("e:[")
+        pos = res.find("f:[")
         json_data = res[pos + 2 :]
         items = json.loads(json_data)[3]["children"][1][3]["children"][0][3][
             "children"
