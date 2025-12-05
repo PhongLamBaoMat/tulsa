@@ -624,7 +624,6 @@ rss = [
   { category = "generic", url = "https://greg.molnar.io/feed.xml" },
   { category = "generic", url = "https://grimmie.net/feed/" },
   { category = "generic", url = "https://grsecurity.net/blog.rss" },
-  { category = "generic", url = "https://guisso.dev/posts/index.xml" },
   { category = "generic", url = "https://gum3t.xyz/atom.xml" },
   { category = "generic", url = "https://h0mbre.github.io/feed" },
   { category = "generic", url = "https://hack.lu/feed.xml" },
