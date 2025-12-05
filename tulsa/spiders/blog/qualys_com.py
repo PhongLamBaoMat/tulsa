@@ -22,7 +22,9 @@ class QualysComSpider(Spider):
 
     @staticmethod
     async def default_request_handler(context: ParselCrawlingContext):
-        items = context.selector.xpath('//ul[@class="advisories"]/li')
+        items = context.selector.xpath(
+            '//ul[@class="list-none p-0 flex flex-col gap-15"]/li'
+        )
 
         if len(items) == 0:
             context.log.error(f"{context.request.url} | Cannot find HTML element")
