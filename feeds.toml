@@ -1517,6 +1517,7 @@ rss = [
   { category = "generic", url = "https://www.vmray.com/feed/", exclude_tags = [
     "events and news",
   ] },
+  { category = "generic", url = "https://www.vnsecurity.net/feed" },
   { category = "generic", url = "https://www.volexity.com/feed/" },
   { category = "generic", url = "https://www.volkis.com.au/feed.xml" },
   { category = "generic", url = "https://www.welivesecurity.com/en/rss/feed/", in_urls = [
