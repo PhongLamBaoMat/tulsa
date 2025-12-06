@@ -1152,6 +1152,7 @@ rss = [
   { category = "generic", url = "https://stigward.github.io/feed.xml" },
   { category = "generic", url = "https://straightblast.medium.com/feed" },
   { category = "generic", url = "https://stulle123.github.io/index.xml" },
+  { category = "generic", url = "https://sud0ru.ghost.io/rss/" },
   { category = "generic", url = "https://sudorem.dev/index.xml" },
   { category = "generic", url = "https://summoning.team/blog/index.xml" },
   { category = "generic", url = "https://support.shellphish.net/feed.xml" },
