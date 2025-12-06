@@ -981,6 +981,7 @@ rss = [
   { category = "generic", url = "https://qvq.im/atom.xml" },
   { category = "generic", url = "https://qyn.app/feed.xml" },
   { category = "generic", url = "https://r00tkitsmm.github.io/feed.xml" },
+  { category = "generic", url = "https://r136a1.dev/feed.xml" },
   { category = "generic", url = "https://r3v3rs3r.wordpress.com/feed/" },
   { category = "generic", url = "https://raelize.com/index.xml" },
   { category = "generic", url = "https://raesene.github.io/feed.xml" },
