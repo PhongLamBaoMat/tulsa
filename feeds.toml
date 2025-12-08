@@ -814,7 +814,6 @@ rss = [
   { category = "generic", url = "https://medium.com/feed/@renwa" },
   { category = "generic", url = "https://medium.com/feed/@sa-blog" },
   { category = "generic", url = "https://medium.com/feed/@the_abjuri5t" },
-  { category = "generic", url = "https://medium.com/feed/@traclabs_" },
   { category = "generic", url = "https://medium.com/feed/cybersecpadawan" },
   { category = "generic", url = "https://medium.com/feed/haktrak-cybersecurity-squad" },
   { category = "generic", url = "https://medium.com/feed/maverislabs" },
