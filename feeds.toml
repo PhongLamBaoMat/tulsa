@@ -1486,7 +1486,6 @@ rss = [
   { category = "generic", url = "https://www.sentinelone.com/labs/feed/" },
   { category = "generic", url = "https://www.seqrite.com/blog/category/technical/feed/" },
   { category = "generic", url = "https://www.serializing.me/post/index.xml" },
-  { category = "generic", url = "https://www.shelltrail.com/research/index.xml" },
   { category = "generic", url = "https://www.shielder.com/blog/index.xml" },
   { category = "generic", url = "https://www.silentpush.com/tag/threat/feed/" },
   { category = "generic", url = "https://www.silobreaker.com/blog/category/cyber-threats/feed/" },
