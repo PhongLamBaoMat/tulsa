@@ -891,7 +891,6 @@ rss = [
   { category = "generic", url = "https://nv1t.github.io/blog/index.xml" },
   { category = "generic", url = "https://nyanpasu64.gitlab.io/atom.xml" },
   { category = "generic", url = "https://nyxgeek.wordpress.com/feed/" },
-  { category = "generic", url = "https://o0xmuhe.github.io/atom.xml" },
   { category = "generic", url = "https://objective-see.org/rss.xml" },
   { category = "generic", url = "https://observationsinsecurity.com/feed/" },
   { category = "generic", url = "https://oceanleaf.ch/tag/security/rss/" },
