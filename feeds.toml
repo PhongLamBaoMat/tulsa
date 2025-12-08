@@ -306,7 +306,6 @@ rss = [
   { category = "generic", url = "https://blog.lukaszolejnik.com/rss/" },
   { category = "generic", url = "https://blog.lumen.com/author/black-lotus-labs/feed/" },
   { category = "generic", url = "https://blog.lupusnova.com/feed.xml", allow_empty = true },
-  { category = "generic", url = "https://blog.malcore.io/feed" },
   { category = "generic", url = "https://blog.malicious.group/rss/" },
   { category = "generic", url = "https://blog.malware.re/atom.xml" },
   { category = "generic", url = "https://blog.marcolancini.it/feed.xml" },
