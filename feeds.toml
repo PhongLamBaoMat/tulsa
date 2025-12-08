@@ -1207,7 +1207,6 @@ rss = [
   { category = "generic", url = "https://tomverbeure.github.io/feed.xml" },
   { category = "generic", url = "https://tonyharris.io/posts/index.xml" },
   { category = "generic", url = "https://tortel.li/index.xml" },
-  { category = "generic", url = "https://trac-labs.com/feed" },
   { category = "generic", url = "https://tracebit.com/blog/rss.xml" },
   { category = "generic", url = "https://trevorsaudi.com/index.xml" },
   { category = "generic", url = "https://trustedsec.com/feed.rss" },
