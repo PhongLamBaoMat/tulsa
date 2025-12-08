@@ -11,7 +11,7 @@ from tulsa.models import Blog
 
 
 async def default_request_handler(context: ParselCrawlingContext):
-    for entry in json.loads(await context.http_response.read())["posts"]:
+    for entry in json.loads(await context.http_response.read())["posts"][:20]:
         if (
             entry["category"]["name"] != "security-research"
             and entry["category"]["name"] != "security"
