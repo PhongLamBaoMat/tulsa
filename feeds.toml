@@ -424,7 +424,6 @@ rss = [
   { category = "generic", url = "https://buptsb.github.io/blog/rss.xml" },
   { category = "generic", url = "https://bushido-sec.com/index.php/feed/" },
   { category = "generic", url = "https://c4ebt.github.io/feed.xml" },
-  { category = "generic", url = "https://c99.sh/feed/" },
   { category = "generic", url = "https://campbell.scot/feed/" },
   { category = "generic", url = "https://captmeelo.com/feed.xml" },
   { category = "generic", url = "https://carstein.github.io/feed.xml" },
