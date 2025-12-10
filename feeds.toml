@@ -852,7 +852,6 @@ rss = [
   { category = "generic", url = "https://mrvar0x.com/feed/" },
   { category = "generic", url = "https://mrxstudios.home.blog/feed/" },
   { category = "generic", url = "https://msm.lt/index.xml" },
-  { category = "generic", url = "https://msrc.microsoft.com/blog/feed" },
   { category = "generic", url = "https://mssec.wordpress.com/feed/" },
   { category = "generic", url = "https://muha2xmad.github.io/feed.xml" },
   { category = "generic", url = "https://n0debreak.com/feed/" },
