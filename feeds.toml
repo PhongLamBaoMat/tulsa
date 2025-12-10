@@ -1554,7 +1554,6 @@ rss = [
   { category = "generic", url = "https://zerodayengineering.com/rss" },
   { category = "generic", url = "https://zeromips.org/index.xml" },
   { category = "generic", url = "https://zerotistic.blog/feed.xml" },
-  { category = "generic", url = "https://zetier.com/feed/" },
   { category = "generic", url = "https://zeus.ugent.be/feed.xml" },
   { category = "generic", url = "https://zeyadazima.com/feed.xml" },
   { category = "generic", url = "https://zhero-web-sec.github.io/feed.xml" },
