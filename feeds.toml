@@ -613,7 +613,6 @@ rss = [
   { category = "generic", url = "https://giraffesecurity.dev/index.xml" },
   { category = "generic", url = "https://github.blog/tag/github-security-lab/feed/" },
   { category = "generic", url = "https://gmo-cybersecurity.com/blog/feed/" },
-  { category = "generic", url = "https://goggleheadedhacker.com/feed.xml" },
   { category = "generic", url = "https://goodworkaround.com/feed/" },
   { category = "generic", url = "https://googleprojectzero.github.io/0days-in-the-wild/feed.xml", allow_empty = true },
   { category = "generic", url = "https://grafana.com/tags/security/index.xml" },
