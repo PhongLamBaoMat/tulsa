@@ -752,7 +752,11 @@ rss = [
   { category = "generic", url = "https://lalloh.github.io/index.xml" },
   { category = "generic", url = "https://landaire.net/atom.xml" },
   { category = "generic", url = "https://letsencrypt.org/feed.xml" },
-  { category = "generic", url = "https://levelblue.com/site/blog-all-rss" },
+  { category = "generic", url = "https://levelblue.com/blogs/levelblue-blog/rss.xml", only_tags = [
+    "report",
+    "security research",
+  ] },
+  { category = "generic", url = "https://levelblue.com/blogs/spiderlabs-blog/rss.xml" },
   { category = "generic", url = "https://lief.re/index.xml" },
   { category = "generic", url = "https://little-canada.org/feeds/output/applesecurityresearch.rss" },
   { category = "generic", url = "https://little-canada.org/feeds/output/exploitsforsale.rss" },
